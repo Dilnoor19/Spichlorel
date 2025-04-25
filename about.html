@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Spichlorel Healthcare | Our Mission & Values</title>
+    <style>
+        :root {
+            --primary: #2a7f62;
+            --secondary: #3ab795;
+            --accent: #ff7e33;
+            --light: #f8f9fa;
+            --dark: #212529;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--dark);
+        }
+        
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo {
+            height: 50px;
+            margin-right: 15px;
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .auth-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .btn {
+            padding: 0.6rem 1.2rem;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary);
+        }
+        
+        /* About Us Hero Section */
+        .about-hero {
+            background: linear-gradient(135deg, rgba(42,127,98,0.1) 0%, rgba(58,183,149,0.1) 100%);
+            padding: 5rem 5%;
+            text-align: center;
+        }
+        
+        .about-hero h1 {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .about-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        /* Mission Section */
+        .mission-section {
+            padding: 5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+        
+        .mission-content {
+            flex: 1;
+        }
+        
+        .mission-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .mission-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .section-title {
+            color: var(--primary);
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* History Timeline */
+        .history-section {
+            padding: 5rem 5%;
+            background-color: var(--light);
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--secondary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+        
+        .timeline-item {
+            padding: 1rem 3rem;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-content {
+            padding: 2rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .timeline-date {
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Team Section */
+        .team-section {
+            padding: 5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .team-member {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .team-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1rem;
+            border: 3px solid var(--secondary);
+        }
+        
+        .team-name {
+            color: var(--primary);
+            margin: 0.5rem 0;
+        }
+        
+        .team-position {
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        
+        /* Values Section */
+        .values-section {
+            padding: 5rem 5%;
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .values-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .value-card {
+            background-color: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .value-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+        
+        .value-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 5%;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(42,127,98,0.1) 0%, rgba(58,183,149,0.1) 100%);
+        }
+        
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 3rem 5%;
+            text-align: center;
+        }
+        
+        .footer-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .footer-logo span {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .copyright {
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            .nav-links {
+                margin: 1rem 0;
+            }
+            
+            .mission-section {
+                flex-direction: column;
+            }
+            
+            .timeline::before {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo-container">
+                <img src="images/a1.jpg" alt="Spichlorel Healthcare Logo" class="logo">
+                <span class="logo-text">Spichlorel Healthcare</span>
+            </div>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="features.html">Features</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="about-hero">
+        <h1>Our Story, Your Health</h1>
+        <p>At Spichlorel Healthcare, we're revolutionizing healthcare through innovation, compassion, and scientific excellence. Founded on the principle that everyone deserves access to premium health solutions, we've dedicated ourselves to developing products that make a real difference in people's lives.</p>
+    </section>
+    
+    <section class="mission-section">
+        <div class="mission-content">
+            <h2 class="section-title">Our Mission</h2>
+            <p>To empower individuals to take control of their health through scientifically-validated, accessible healthcare solutions that bridge the gap between traditional medicine and modern innovation.</p>
+            <p>We believe in a world where preventive healthcare is the norm, where quality treatments are available to all, and where every product we create makes a measurable impact on wellbeing.</p>
+        </div>
+        
+    </section>
+    
+    <section class="history-section">
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">2024</div>
+                    <h3>Foundation</h3>
+                    <p>Spichlorel Healthcare was founded by a college group with a vision to create accessible, science-backed health solutions.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Founder Group</h3>
+                    <p>Three BBA friends came to an idea of manufacturing healthcare products that are currently not available in india with 100% natural resources</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Members</h3>
+                    <p>The Memeber's were Mr Yasharth Tiwari , Mr Dhruv Pandey and Mrs Aastha Rathi that came to this brilliant idea</p>
+                </div>
+            </div>
+       
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">2025</div>
+                    <h3>1st product </h3>
+                    <p>"Spirulina Powder" After few research group found a product that improves immunity of consumer , product was used by Astronaut's for their proper nutrient intake</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="team-section">
+        <h2 class="section-title">Meet Our Leader's</h2>
+        <p>The brilliant minds behind Spichlorel
+            
+        </p>
+        
+        <div class="team-grid">
+            <div class="team-member">
+                <img src="images/b1.jpg" alt="Dr. Elena Spichlorel" class="team-photo">
+                <h3 class="team-name">Yasharth Tiwari</h3>
+                <p class="team-position">Founder & CEO</p>
+                
+            </div>
+            <div class="team-member">
+                <img src="images/b2.jpg" alt="Dr. Michael Chen" class="team-photo">
+                <h3 class="team-name">Aastha Rathi</h3>
+                <p class="team-position">Co-Founder & CFO </p>
+               
+            <div class="team-member">
+                <img src="images/b3.jpg" alt="Sarah Johnson" class="team-photo">
+                <h3 class="team-name">Dhruv Pandey</h3>
+                <p class="team-position">Co-Founder & CMO</p>
+                
+            </div>
+        </div>
+    </section>
+    
+    <section class="values-section">
+        <div class="values-container">
+            <h2 class="section-title" style="color: lawngreen;text-align: center;">Our Core Values</h2>
+            
+            <p style="color: lawngreen;text-align: center;font-size: 20px;">The principles that guide every decision we make</p>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">🔬</div>
+                    <h3 class="value-title">Scientific Integrity</h3>
+                    <p>Every product is developed through rigorous research and evidence-based practices.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">❤️</div>
+                    <h3 class="value-title">Patient-Centered</h3>
+                    <p>We design solutions focused on real patient needs and measurable outcomes.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🌍</div>
+                    <h3 class="value-title">Sustainable Practices</h3>
+                    <p>Committed to environmentally responsible manufacturing and sourcing.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🏛️</div>
+                    <h3 class="value-title">Ethical Standards</h3>
+                    <p>We maintain transparency and uphold the highest ethical standards in all we do.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2 class="section-title">Join Us in Revolutionizing Healthcare</h2>
+            <p>Discover how Spichlorel Healthcare can make a difference in your life or practice. Explore our products or partner with us to bring innovative solutions to your community.</p>
+            <button class="btn btn-primary" style="margin-top: 2rem;">Explore Products</button>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="footer-logo">
+            <img src="images/a1.jpg" alt="Spichlorel Healthcare Logo">
+            <span>Spichlorel Healthcare</span>
+        </div>
+        <div class="footer-links">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="faq.html">FAQs</a>
+        </div>
+        <p class="copyright">© 2023 Spichlorel Healthcare. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        // You can reuse the same authentication modal scripts from your homepage
+        // They would typically be in a separate JS file included on all pages
+    </script>
+</body>
+</html>
